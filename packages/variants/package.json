@@ -19,7 +19,12 @@
     "JavaScript",
     "TypeScript",
     "iOS",
-    "Android"
+    "Android",
+    "nativescript",
+    "mobile",
+    "ios",
+    "ecosystem:nativescript",
+    "android"
   ],
   "author": {
     "name": "Developer3",
