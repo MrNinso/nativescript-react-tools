@@ -1,0 +1,65 @@
+{
+  "name": "variants",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/variants",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/variants",
+        "tsConfig": "packages/variants/tsconfig.json",
+        "packageJson": "packages/variants/package.json",
+        "main": "packages/variants/index.d.ts",
+        "assets": [
+          "packages/variants/*.md",
+          "packages/variants/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/variants/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts variants"],
+        "parallel": false
+      },
+      "outputs": ["{workspaceRoot}/dist/packages/variants"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages variants"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/variants/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

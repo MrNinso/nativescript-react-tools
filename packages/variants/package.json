@@ -1,0 +1,35 @@
+{
+  "name": "@nativescript-react-tools/variants",
+  "version": "1.0.1",
+  "description": "Add a plugin description",
+  "main": "index",
+  "types": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "6.0.0",
+      "android": "6.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MrNinso/nativescript-react-tools.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "TypeScript",
+    "iOS",
+    "Android"
+  ],
+  "author": {
+    "name": "Developer3",
+    "email": "suporte@developer3.cyou"
+  },
+  "bugs": {
+    "url": "git@github.com:MrNinso/nativescript-react-tools/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "git@github.com:MrNinso/nativescript-react-tools",
+  "readmeFilename": "README.md",
+  "bootstrapper": "@nativescript/plugin-seed"
+}
